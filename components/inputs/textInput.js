@@ -3,11 +3,11 @@ import { useRef, useCallback } from "react";
 
 const TextInput = ({
   name,
+  type,
   id = "",
   // meta,
   input = {},
   value = "",
-  type = "text",
   className = "",
   placeholder = "",
   onClick = undefined,
@@ -25,7 +25,6 @@ const TextInput = ({
     },
     [onChange, input]
   );
-
   return (
     <input
       id={id}
@@ -43,12 +42,12 @@ const TextInput = ({
 
 TextInput.propTypes = {
   id: PropTypes.string,
-  type: PropTypes.string,
   value: PropTypes.string,
   onClick: PropTypes.func,
   onChange: PropTypes.func,
   className: PropTypes.string,
   placeholder: PropTypes.string,
+  type: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   // meta: PropTypes.objectOf(PropTypes.any),
   input: PropTypes.objectOf(PropTypes.any),
