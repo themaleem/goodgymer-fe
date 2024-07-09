@@ -64,7 +64,7 @@ const SignUp = () => {
                 placeholder="Enter Email"
               />
               <label htmlFor="password">Password</label>
-              <PasswordInput />
+              <PasswordInput name="password" />
               <button
                 type="submit"
                 disabled={submitting || hasValidationErrors}
