@@ -4,8 +4,9 @@ import { Field, Form } from "react-final-form";
 
 import TextInput from "../inputs/textInput";
 import { getPath } from "../../config/urls";
-import signUp from "../../actions/auth/signUp";
 import EmailInput from "../inputs/emailInput";
+import signUp from "../../actions/auth/signUp";
+import { showNotification } from "../notification";
 import PasswordInput from "../inputs/passwordInput";
 import { FORM_SUBSCRIPTION } from "../../config/form";
 
@@ -23,7 +24,12 @@ const SignUp = () => {
     };
 
     return dispatch(signUp(data))
-      .then(() => {})
+      .then(() => {
+        showNotification({
+          severity: "success",
+          detail: "You have successfully registered an account",
+        });
+      })
       .catch();
   };
 

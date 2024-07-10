@@ -7,6 +7,7 @@ import Notification from "../components/notification";
 import "../public/styles/styles.css";
 
 import "react-loading-skeleton/dist/skeleton.css";
+import "primereact/resources/themes/lara-light-cyan/theme.css";
 
 const MyApp = ({ Component, pageProps }) => {
   return (

@@ -28,6 +28,21 @@ const pathsByName = {
     href: "/users/logged_in_user",
     route: "/users/logged_in_user",
   },
+  sessionsPath: {
+    type: "dashboard",
+    href: "/sessions",
+    route: "/sessions/",
+  },
+  registeredSessionPath: {
+    type: "dashboard",
+    route: "/sessions/",
+    href: "/sessions/registered",
+  },
+  newSessionPath: {
+    type: "dashboard",
+    href: "/sessions/new",
+    route: "/sessions/",
+  },
 };
 
 const pathsByHref = Object.values(pathsByName).reduce((acc, val) => {

@@ -14,8 +14,8 @@ const onStaticPath = (pathname) => isPathType(pathname, "static");
 
 const currentUserPath = getPath("currentUserPath").as;
 
-const homePath = getPath("homePath").href;
 const signInPath = getPath("signInPath").href;
+const sessionsPath = getPath("sessionsPath").href;
 const completeSignupPath = getPath("completeSignupPath").href;
 
 const authWrapper = (WrappedComponent) => {
@@ -40,7 +40,7 @@ const authWrapper = (WrappedComponent) => {
     });
 
     // Handle Redirects
-    // User who is unauthenticated but trying to visit an auth pages.
+    // User who is unauthenticated but trying to visit a  non-auth pages.
     const noUserAndNotOnAuthPath = () => {
       if (user === null && !onAuthPath(pathname)) {
         return (redirectTo = signInPath);
@@ -48,7 +48,20 @@ const authWrapper = (WrappedComponent) => {
       return undefined;
     };
 
-    const userPresentWithoutGoodgymProfile = () => {
+    // Handle Redirects
+    // User who is unauthenticated but trying to visit an the register step 2
+    const noUserAndOnCompleteSignupPath = () => {
+      if (
+        user === null &&
+        onAuthPath(pathname) &&
+        pathname === completeSignupPath
+      ) {
+        return (redirectTo = signInPath);
+      }
+      return undefined;
+    };
+
+    const userWithoutGoodgymProfile = () => {
       if (user !== null && pathname !== completeSignupPath) {
         return (redirectTo = completeSignupPath);
       }
@@ -61,7 +74,7 @@ const authWrapper = (WrappedComponent) => {
     // todo: redirect to sessions list path
     const userOnAuthPath = () => {
       if (user !== null && onAuthPath(pathname)) {
-        return (redirectTo = homePath);
+        return (redirectTo = sessionsPath);
       }
       return undefined;
     };
@@ -73,7 +86,7 @@ const authWrapper = (WrappedComponent) => {
       if (noUserAndNotOnAuthPath()) {
       } else if (user) {
         if (!user.profile_completed) {
-          userPresentWithoutGoodgymProfile();
+          userWithoutGoodgymProfile();
         } else {
           userOnAuthPath();
         }

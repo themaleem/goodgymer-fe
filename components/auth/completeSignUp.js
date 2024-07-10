@@ -5,10 +5,12 @@ import { Field, Form } from "react-final-form";
 import { getPath } from "../../config/urls";
 import { required } from "../../lib/objects";
 import SelectInput from "../inputs/selectInput";
+import { showNotification } from "../notification";
 import { FORM_SUBSCRIPTION } from "../../config/form";
 import completeSignUp from "../../actions/auth/updateProfile";
 
 const homePath = getPath("homePath").href;
+const sessionsPath = getPath("sessionsPath").href;
 
 // mimic currently supported areas
 const areas = [
@@ -34,7 +36,13 @@ const CompleteSignUp = () => {
 
     return dispatch(completeSignUp(data))
       .then(() => {
+        showNotification({
+          severity: "success",
+          detail: "Signup Completed",
+        });
         // @note no need to reroute, the auth wrapper will take over from here
+        // authwrapper kicks in slow on development due to slow page build
+        router.push(sessionsPath);
       })
       .catch();
   };

@@ -18,11 +18,10 @@ const useSignOut = (auth) => {
       removeDocumentAuthCookies();
       cache.clear();
       router
-        .push(getPath("homePath").as)
+        .push(getPath("signInPath").as)
         .then(() => {
           dispatch(signOut());
         })
-
         .catch();
     }
   };

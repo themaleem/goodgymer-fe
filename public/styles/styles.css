@@ -3,18 +3,16 @@ body {
   background-color: #f8f8f8;
   margin: 0;
   padding: 0;
+}
+
+.container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
 
-.container, .dashboard-container {
-  width: 100%;
-  max-width: 500px;
-  margin: auto;
-}
-
+/* Styling for auth forms */
 .auth-form {
   background-color: white;
   padding: 20px;
@@ -54,13 +52,26 @@ body {
   cursor: pointer;
 }
 
+.auth-form button:hover {
+  background-color: #c0392b;
+}
+
 .auth-form button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
 }
 
-.auth-form button:hover {
-  background-color: #c0392b;
+.auth-form p {
+  margin-top: 15px;
+}
+
+.auth-form a {
+  color: #e74c3c;
+  text-decoration: none;
+}
+
+.auth-form a:hover {
+  text-decoration: underline;
 }
 
 .progress-bar {
@@ -83,7 +94,6 @@ body {
 .dashboard-container {
   display: flex;
   height: 100vh;
-  background-color: #f8f8f8;
 }
 
 .sidebar {
@@ -94,6 +104,9 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .sidebar .logo {
@@ -132,6 +145,7 @@ body {
 .main-content {
   flex-grow: 1;
   padding: 20px;
+  overflow-y: auto;
 }
 
 .main-content h2 {
@@ -180,6 +194,16 @@ body {
   font-size: 16px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.event-box button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.event-box button:disabled:hover {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .event-box button:hover {
