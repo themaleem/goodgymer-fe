@@ -1,40 +1,76 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Here is the complete README for your frontend application:
 
-## Getting Started
+````markdown
+# GoodGymer Frontend
 
-First, run the development server:
+## Overview
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+The GoodGymer Frontend is a React application built with Next.js that consumes the GoodGymer Session Management API. It allows users to view and register for sessions, manage their profiles, and more. The application uses Redux for state management, React Final Form for form handling, and SWR for data fetching. It also includes custom input fields and an Axios interceptor for API requests.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Included
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+- **User Authentication:** Login and signup functionality integrated with the GoodGymer Session Management API.
+- **Session Management:** View, register, and unregister for sessions.
+- **Profile Management:** View and update user profiles.
+- **State Management:** Uses Redux to manage the logged-in user state.
+- **Form Handling:** Uses React Final Form with custom input fields for robust form management.
+- **Data Fetching:** Uses SWR for efficient data fetching and caching.
+- **API Requests:** Custom Axios interceptor for handling API requests and responses.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Running the Project
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Prerequisites
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- Node.js => v18.19.0
+- npm => 10.2.3
 
-## Learn More
+### Setup Instructions
 
-To learn more about Next.js, take a look at the following resources:
+1. **Clone the Repository**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```sh
+   git clone https://github.com/themaleem/goodgymer-fe.git
+   cd goodgymer-fe
+   ```
+````
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. **Install Dependencies**
 
-## Deploy on Vercel
+   ```sh
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+3. **Run the Development Server**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+   ```sh
+   npm run dev
+   ```
+
+4. **Setup and run the backend development server**
+   -- As documented in https://github.com/themaleem/goodgymer-be?tab=readme-ov-file#goodgymer-session-management-api
+
+5 **Visit on browser**
+-- entry `localhost:2000/auth/sign-up`
+
+## Project Structure
+
+- `components/`: Contains all the React components including:
+  -- reusable custom input compontent
+  -- Notification toaster component
+  -- reusable custom input compontent
+  etc
+- `pages/`: Contains all the Next.js entry pages for routing.
+- `actions/`: Contains actions files for API calls.
+- `config/`: Contains app level configuration methods.
+- `containers/`: Contains HOCs and custom hooks components
+- `reducers/`: Contains authentication state reducers and slices
+- `lib/`: Contains reusable methods and helper.
+- `swr/`: Contains SWR configuration for data fetching.
+
+## Key Libraries and Tools
+
+- **Next.js:** Framework for server-side rendering and static site generation.
+- **Redux:** State management library.
+- **React Final Form:** Form handling library.
+- **SWR:** React Hooks library for data fetching.
+- **Axios:** Promise-based HTTP client for making API requests.
